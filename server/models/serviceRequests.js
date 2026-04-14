@@ -65,7 +65,7 @@ const serviceRequestSchema = new mongoose.Schema(
     // 👨‍🔧 TECHNICIAN ASSIGNMENT
     assignedTechnician: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "technicianProfile",
     },
 
     // 👤 CREATED BY (Customer ID)
