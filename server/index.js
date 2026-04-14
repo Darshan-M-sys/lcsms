@@ -5,6 +5,8 @@ const sessions = require('express-session');
 require('dotenv').config();
 const {MongoStore} = require('connect-mongo');
 const AuthRouter = require('./routes/authRoute');
+const createRequestRouter = require('./routes/createRequestRoute');
+const adminRouter = require('./routes/AdminRoutes');
 const app = express();
 const port = process.env.PORT || 5000;
 app.use(express.json());
@@ -25,6 +27,9 @@ app.use(sessions({
 
 
 app.use('/api/auth',AuthRouter);
+app.use('/api/services/request',createRequestRouter);
+// admin routes
+app.use("/api/admin",adminRouter);
 
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
